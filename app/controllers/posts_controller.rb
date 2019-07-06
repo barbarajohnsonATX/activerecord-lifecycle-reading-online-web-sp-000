@@ -19,8 +19,24 @@ class PostsController < ApplicationController
 
 	def update
 	  @post = Post.find(params[:id])
+
+	  if @post.valid?
+	    @post.save 
+	   redirect_to song_path(@song)
+  end 
+  
 	  @post.update(params.require(:post))
 	  redirect_to post_path(@post)
+	  
+	      @song.assign_attributes(song_params)
+
+    if @song.valid?
+      @song.save
+      redirect_to song_path(@song)
+    else
+      render :edit
+    end
+    
 	end
 
 	def edit
