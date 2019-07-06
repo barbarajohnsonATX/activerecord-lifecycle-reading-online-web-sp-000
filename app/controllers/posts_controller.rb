@@ -27,12 +27,9 @@ class PostsController < ApplicationController
       render :edit
     end 
   
-	  @post.update(params.require(:post))
-	  redirect_to post_path(@post)
+	  #@post.update(params.require(:post))
+	  #redirect_to post_path(@post)
 	  
-
-   
-    
 	end
 
 	def edit
