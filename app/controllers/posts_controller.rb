@@ -30,7 +30,6 @@ class PostsController < ApplicationController
 	  @post.update(params.require(:post))
 	  redirect_to post_path(@post)
 	  
-	      @song.assign_attributes(song_params)
 
    
     
