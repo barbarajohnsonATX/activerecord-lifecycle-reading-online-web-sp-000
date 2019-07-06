@@ -19,16 +19,8 @@ class PostsController < ApplicationController
 
 	def update
 	  @post = Post.find(params[:id])
-
-	  if @post.valid?
-	    @post.save 
-	    redirect_to post_path(@post)
-	  else 
-      render :edit
-    end 
-  
-	  #@post.update(params.require(:post))
-	  #redirect_to post_path(@post)
+	  @post.update(params.require(:post))
+	  redirect_to post_path(@post)
 	  
 	end
 
