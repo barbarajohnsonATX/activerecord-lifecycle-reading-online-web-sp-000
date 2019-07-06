@@ -22,20 +22,17 @@ class PostsController < ApplicationController
 
 	  if @post.valid?
 	    @post.save 
-	   redirect_to song_path(@song)
-  end 
+	    redirect_to post_path(@post)
+	  else 
+      render :edit
+    end 
   
 	  @post.update(params.require(:post))
 	  redirect_to post_path(@post)
 	  
 	      @song.assign_attributes(song_params)
 
-    if @song.valid?
-      @song.save
-      redirect_to song_path(@song)
-    else
-      render :edit
-    end
+   
     
 	end
 
